@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The man, wolf, goat, cabbage - Problem </title>
+    <link rel="icon" type="image/png" href="farmer.png">
+    <link href="//db.onlinewebfonts.com/c/e8c6a63541de0a4211a9358cbe74690f?family=Futura" rel="stylesheet"
+        type="text/css" />
+    <link href="//db.onlinewebfonts.com/c/9ab8abd11c40ee5c8d1905f9c9cb9ac8?family=Futura" rel="stylesheet"
+        type="text/css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="main.css">
+
+
+</head>
+
+
+<body>
+    <section class="intro" id="home">
+        <img src="images.jfif" class="intro__img">
+        <h1 class="section__title section__title--intro">
+            <strong>The man, wolf, goat, cabbage</strong>
+        </h1>
+
+        <p class="section__subtitle section__subtitle--intro">Povestea</p>
+
+        <h3>Un om, ducând la târg un lup, o capră şi o varză, ajunge în dreptul unui râu, pe care trebuie să-l treacă peste o punte
+        îngustă. Cum va proceda el, ştiind că: </h3>
+        <h3>
+        -lupul mănâncă capra şi capra mănâncă varza
+        </h3>
+        <h3>
+        -omul nu poate să-i treacă pe toţi o dată şi nici câte doi
+        </h3>
+        <h3>
+        -numărul de traversări trebuie să fie minim?
+        </h3>
+        
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <p class="section__subtitle section__subtitle--intro">Jocul</p>
+        <h3>Treaba dumneavoastră este să vă dați seama de ordinea corectă în care fermierul trebuie să transporte
+        animalele și varza pe partea opusă a râului. Fiecare buton îi este destinat unui caracter sau unui obiect,
+        iar atunci când este apăsat, acel caracter/obiect va fi pus în coadă, pentru a se deplasa de pe o parte
+        a râului pe cealaltă. După fiecare mișcare a unui caracter/obiect, faceți click pe "Traversați râul",
+        pentru a vedea dacă mutarea dumneavoastră pune vreun caracter/obiect în pericol.
+        </h3>
+        <h3>
+            Dacă reușiți să-i duceți pe toți în partea dreaptă a râului, ați câștigat.
+            
+        </h3>
+        <h3>
+            Mult succes și sper să vă distrați! :)
+        </h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <button class="tr" onclick="Verify()"><i class="fas fa-water"></i>Traversați râul</button>
+        <p class="elementLeftr" id="test"></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <button class="tr" onclick="functieFermier()">
+            <i class="fas fa-male"></i> Fermierul</button>
+        <p class="elementLeftf" id="fermier">Fermierul se află pe partea stângă a râului.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <button class="tr" onclick="functieCapra()"><i class="fas fa-horse"></i>Capra</button>
+        <p class="elementLeftg" id="capra">Capra se află pe partea stângă a râului.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <button class="tr" onclick="functieLup()"><i class="fab fa-wolf-pack-battalion"></i>Lupul</button>
+        <p class="elementLeftw" id="lup">Lupul se află pe partea stângă a râului.</p>
+
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <button class="tr" onclick="functieVarza()">
+            <i class="fas fa-leaf"></i>
+            Varza</button>
+        <p class="elementLeftc" id="varza">Varza se află pe partea stângă a râului.</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <button class="tr" id="myBtn"><i class="far fa-question-circle"></i>Soluția</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Omul va face în total 7 traversări, după cum urmează:
+                </p>
+                <p>
+                    <li>
+                        Trece cu capra pe celălalt mal
+                    </li>
+                    <li>
+                        Se întoarce înapoi
+                    </li>
+                    <li>
+                        Duce varza peste râu
+                    </li>
+                    <li>
+                        Se întoarce cu capra
+                    </li>
+                    <li>
+                        Trece cu lupul sau varza
+                    </li>
+                    <li>
+                        Se întoarce înapoi
+                    </li>
+                    <li>
+                        În sfârşit, duce şi capra pe malul celălalt.
+                    </li>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--Footer-->
+    <footer class="footer">
+        <h3>Bosoancă Maria-Daniela</h3>
+        <h3>Facultatea de Automatică și Calculatoare, UPT</h3>
+        <h4>anul 3, grupa 1.2, LAB1</h4>
+        </a>
+    </footer>
+
+    <script>
+        var varFermier = 0;
+        var varCapra= 0;
+        var varLup = 0;
+        var varVarza = 0;
+        var drept;
+        var stang;
+        var solutie;
+
+
+        function functieFermier() {
+            if (varFermier == 1) {
+                document.getElementById("fermier").innerHTML = "Fermierul se îndreaptă spre malul stâng al râului";  varFermier= 0;
+            }
+            else {
+                document.getElementById("fermier").innerHTML = "Fermierul se îndreaptă spre malul drept al râului";  varFermier= 1;
+
+            }
+        }
+
+        function functieCapra() {
+            if (varCapra== 1) {
+                document.getElementById("capra").innerHTML = "Capra se îndreaptă spre malul stâng al râului"; varCapra= 0;
+            }
+            else {
+                document.getElementById("capra").innerHTML = "Capra se îndreaptă spre malul drept al râului"; varCapra= 1;
+            }
+        }
+
+        function functieLup() {
+            if (varLup == 1) {
+                document.getElementById("lup").innerHTML = "Lupul se îndreaptă spre malul stâng al râului"; varLup = 0;
+            }
+            else {
+                document.getElementById("lup").innerHTML = "Lupul se îndreaptă spre malul drept al râului"; varLup = 1;
+            }
+        }
+
+        function functieVarza() {
+            if (varVarza == 1) {
+                document.getElementById("varza").innerHTML = "Varza se îndreaptă spre malul stâng al râului"; varVarza = 0;
+            }
+            else {
+                document.getElementById("varza").innerHTML = "Varza se îndreaptă spre malul drept al râului"; varVarza = 1;
+            }
+        }
+
+        function Verify() {
+
+            //daca stang=1, inseamna ca este o problema pe partea stanga a raului
+            //daca drept = 1, inseamna ca este o problema pe partea dreapta a raului
+            //daca varCapra = 0, varLup = 0, varVarza = 0, varFermier = 0, inseamna ca elementele sunt pe partea stanga a raului
+
+            if (varCapra == 0 && varLup == 0 && varVarza == 0 && varFermier == 0) {
+                //toate elementele sunt pe partea stanga => nu exista pericol
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 1 && varLup == 1 && varVarza == 1 && varFermier == 0) {
+                //varza, capra si lupul au fost lasate nesupravegheata pe partea dreapta => pericol pe partea dreapta
+                drept = 1;
+            }
+
+            if (varCapra == 0 && varLup == 0 && varVarza == 0 && varFermier == 1) {
+                //varza, capra si lupul au fost lasate nesupravegheata pe partea stanga => pericol pe partea stanga
+                stang = 1;
+            }
+
+
+            if (varCapra == 1 && varLup == 0 && varVarza == 0 && varFermier == 0) {
+                //daca numai capra este pe partea dreapta => nu exista pericol 
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 1 && varLup == 0 && varVarza == 0 && varFermier == 1) {
+                //daca numai capra este pe partea dreapta => nu exista pericol 
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 0 && varLup == 1 && varVarza == 1 && varFermier == 1) {
+                //daca numai capra este pe partea stanga => nu exista pericol 
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 1 && varLup == 0 && varVarza == 1 && varFermier == 1) {
+                //daca capra, varza si fermierul sunt pe partea dreapta => nu exista pericol
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 0 && varLup == 1 && varVarza == 0 && varFermier == 0) {
+                //daca capra, varza si fermierul sunt pe partea stanga => nu exista pericol
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 1 && varLup == 0 && varVarza == 1 && varFermier == 0) {
+                //varza si capra au fost lasate nesupravegheate => pericol pe partea dreapta
+                drept = 1;
+            }
+
+            if (varCapra == 0 && varLup == 1 && varVarza == 0 && varFermier == 1) {
+                //varza si capra au fost lasate nesupravegheate pe partea stanga => pericol pe partea stanga
+                stang = 1;
+            }
+
+            if (varCapra == 1 && varLup == 1 && varVarza == 0 && varFermier == 0) {
+                //daca capra si lupul au fost lasate nesupravegheate pe partea dreapta => pericol pe partea dreapta
+                drept = 1;
+            }
+
+            if (varCapra == 0 && varLup == 0 && varVarza == 1 && varFermier == 1) {
+                //daca capra si lupul au fost lasate nesupravegheate pe partea stanga => pericol pe partea stanga
+                stang = 1;
+            }
+
+            if (varCapra == 1 && varLup == 1 && varVarza == 0 && varFermier == 1) {
+                //varza este pe partea stanga a raului, iar celelalte elemente sunt pe partea dreapta
+                //chiar daca capra si lupul sunt pe aceeasi parte, este in regula, deoarece sunt "supravegheate"
+                solutie = 0;
+                stang = 0;
+                drept = 0;
+            }
+
+            if (varCapra == 0 && varLup == 0 && varVarza == 1 && varFermier == 0) {
+                //varza este pe partea dreapta a raului, iar celelalte elemente sunt pe partea stanga
+                //chiar daca capra si lupul sunt pe aceeasi parte, este in regula, deoarece sunt "supravegheate"
+                solutie = 0;
+                stang = 0;
+                drept = 0;
+            }
+            if (varCapra == 0 && varLup == 1 && varVarza == 1 && varFermier == 0) {
+                //daca numai capra este pe partea stanga => nu exista pericol 
+                stang = 0;
+                drept = 0;
+                solutie = 0;
+            }
+
+            if (varCapra == 1 && varLup == 1 && varVarza == 1 && varFermier == 1) {
+                //daca varCapra=1, varLup=1, varVarza=1, varFermier=1 => solutie=1, toate elementele sunt pe partea dreapta, adica puzzle-ul a fost rezolvat
+                solutie = 1;
+            }
+
+            if (solutie == 1) {
+                document.getElementById("test").innerHTML = "Felicitări! Ați reușit să transportați în siguranță fermierul, capra, lupul și varza de pe malul stâng al râului pe malul drept.";
+            }
+
+            if (stang == 1) {
+                document.getElementById("test").innerHTML = "Există un pericol pe malul stâng al râului";
+
+            }
+
+            if (drept == 1) {
+                document.getElementById("test").innerHTML = "Există un pericol pe malul drept al râului";
+            }
+
+            if (solutie == 0 && drept == 0 && stang == 0) {
+                document.getElementById("test").innerHTML = "Nu există niciun pericol pe niciun mal";
+            }
+
+            if (varFermier == 1) {
+                document.getElementById("fermier").innerHTML = "Fermierul este pe malul drept al râului";
+            } else {
+                document.getElementById("fermier").innerHTML = "Fermierul este pe malul stâng al râului";
+            }
+
+            if (varCapra == 1) {
+                document.getElementById("capra").innerHTML = "Capra este pe malul drept al râului";
+            } else {
+                document.getElementById("capra").innerHTML = "Capra este pe malul stâng al râului";
+            }
+
+            if (varLup == 1) {
+                document.getElementById("lup").innerHTML = "Lupul este pe malul drept al râului";
+            } else {
+                document.getElementById("lup").innerHTML = "Lupul este pe malul stâng al râului";
+            }
+
+            if (varVarza == 1) {
+                document.getElementById("varza").innerHTML = "Varza este pe malul drept al râului";
+            } else {
+                document.getElementById("varza").innerHTML = "Varza este pe malul stâng al râului";
+            }
+        }
+
+        
+
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <!--
+    
+    daca stang=1, inseamna ca este o problema pe partea stanga a raului
+    daca drept=1, inseamna ca este o problema pe partea dreapta a raului 
+    daca varCapra=0, varLup=0, varVarza=0, varFermier=0, inseamna ca elementele sunt pe partea stanga a raului
+
+-->
+    <!-- Code injected by live-server -->
+    <script type="text/javascript">
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+	// ]]>
+    </script>
+</body>
+
+</html>

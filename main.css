@@ -1,0 +1,229 @@
+:root{
+    --ff-primary: 'Futura Bold', sans-serif;
+    --ff-secondary:'Futura', mono-space;
+    
+    --fw-reg:300;
+    --fw-bold:900;
+
+    --clr-light:#F18134;
+    --clr-1:#6ab8e7;
+    --clr-2:#4061ac;
+    --clr-3:#fad226;
+    --clr-4:#16B7EA;
+    --clr-dark:#303030;
+    --clr-accent:#16e0bd;
+
+    --fs-h1:10rem;
+    --fs-h2:2.25rem;
+    --fs-h3:1.25rem;
+    --fs-body:1rem;
+
+    --bs:0.25em 0.25em 0.75em rgba(0,0,0,0.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+@media (min-width:800px){
+    :root{
+        --fs-h1:4.5rem;
+        --fs-h2:3.75rem;
+        --fs-h3:1.5rem;
+        --fs-body:1.125rem;
+    }
+}
+
+
+/*general styles*/
+
+html{
+scroll-behavior: smooth;
+}
+
+body{
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+section{
+    padding:5em 2em ;
+}
+strong{
+    font-weight: var(--fw-bold);
+}
+
+h1,h2,h3{
+    line-height: 1;
+    margin: 0;
+}
+h1{
+    font-size: var(--fs-h1);
+    color: var(--clr-2);
+    font-weight: var(--fw-reg);
+    margin-bottom: 0.25em;
+    margin: 90px;
+    padding:.70em 5em ;
+}
+h2{
+    font-size: var(--fs-h2);
+    color: var(--clr-2);
+    font-weight: var(--fw-reg);
+    margin-bottom: 0.25em;
+    margin: 70px;
+    padding: .30em 2em;
+}
+h3{
+    font-size: var(--fs-h3);
+    color: var(--clr-3);
+}
+
+.section__subtitle{
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+.section__subtitle--intro{
+    background: var(--clr-4);
+    padding:.95em 29.1em ;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+    color: var(--clr-3);
+
+}
+
+.intro__img{
+    box-shadow:var(--bs) ;
+}
+.section__subtitle--intro{
+    display: inline-block;
+}
+
+.intro{
+    position: relative;
+}
+
+
+.tr{
+    margin: 10px 0;
+	width: 100%;
+    padding: 10px;
+    text-transform: uppercase;
+	border: 1px solid black;
+	background:var(--clr-light);
+	color: black;
+	font-size: 1em;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.tr:hover{
+    color: #000;
+	background: #00ffff;
+}
+.elementLeftg{
+    position: absolute;
+    margin: 10px 0;
+    left: 150px;
+	width: 25%;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 300px;
+}
+
+.elementLeftf{
+    position: absolute;
+    margin: 10px 0;
+    left: 150px;
+	width: 25%;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 380px;
+}
+.elementLeftr{
+    position: absolute;
+    margin: 10px;
+    justify-content: center;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 460px;
+    align-items: center;
+}
+
+.elementLeftc{
+    position: absolute;
+    margin: 10px 0;
+    left: 150px;
+	width: 25%;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 140px;
+}
+
+.elementLeftw{
+    position: absolute;
+    margin: 10px 0;
+    left: 150px;
+	width: 25%;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 220px;
+}
+
+.elementRight{
+
+    position: absolute;
+    right: 150px;
+    height: 100px;
+    margin: 10px 0;
+    width: 25%;
+	color: var(--clr-3);
+    font-size: 1em;
+    bottom: 340px;
+}
+
+.footer{
+    background:var(--clr-2);
+    color: var(--clr-light);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: var(--fw-bold);
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
